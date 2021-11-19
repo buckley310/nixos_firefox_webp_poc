@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <a href="https://github.com/NixOS/nixpkgs/issues/146382">What is this page?</a>
+    <br><br>
+
+    The image used in this demo was taken from <a href="https://itsfoss.com/best-linux-screen-recorders">itsfoss.com</a>
+    <br><br>
+
+    <button id=b>Crash me!</button>
+
+    <script>
+
+        function crash() {
+            let i = document.createElement('iframe');
+            i.width = "1";
+            i.height = "1";
+            i.src = 'ff_crash.webp';
+            document.body.appendChild(i);
+            setTimeout(() => i.outerHTML = '', 250);
+        }
+
+        document.querySelector('#b').addEventListener('click', function () {
+            document.querySelector('#b').outerHTML = '';
+            setInterval(crash, 300);
+        });
+
+    </script>
+</body>
+
+</html>
